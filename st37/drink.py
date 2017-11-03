@@ -1,10 +1,9 @@
 from .food import *
 
 class drink(food):
-    def __init__(self):
-        super().__init__()
-        
+    pass
 
+           
     def vvod(self):
         self.alcogol = input('Введите алкогольный ли напиток\n')
         super().vvod()
