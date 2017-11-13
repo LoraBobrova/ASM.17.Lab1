@@ -2,10 +2,10 @@ from st30.function import *
 
 
 class Book:
-	__title = ''
-	__cost = 0
-	__publishing_house = ''
-	__author = ''
+	title = ''
+	cost = 0
+	publishing_house = ''
+	author = ''
 	edit_menu = []
 
 	def __init__(self):
@@ -17,22 +17,22 @@ class Book:
 		}
 
 	def set_title(self):
-		self.__title = input('Enter book title\n')
+		self.title = input('Enter book title\n')
 
 	def set_cost(self):
 		while (True):
 			cost = input('Enter the cost of the book\n')
 			if (is_float(cost)):
-				self.__cost = cost
+				self.cost = cost
 				break
 			else:
 				print('Warning. Enter float')
 
 	def set_publishing_house(self):
-		self.__publishing_house = input('Enter the publishing house of the book\n')
+		self.publishing_house = input('Enter the publishing house of the book\n')
 
 	def set_author(self):
-		self.__author = input('Enter the author of the book\n')
+		self.author = input('Enter the author of the book\n')
 
 	def book_registration(self):
 		print(str(self.__class__.__name__))
@@ -43,9 +43,9 @@ class Book:
 
 	def show_book(self):
 		print("{0}\nTitle: {1}\nCost: {2}\nPublishing house: {3}\nAuthor: {4}".format(str(self.__class__.__name__),
-		                                                                          self.__title, str(self.__cost),
-		                                                                          self.__publishing_house,
-		                                                                          self.__author))
+		                                                                          self.title, str(self.cost),
+		                                                                          self.publishing_house,
+		                                                                          self.author))
 
 	def edit_book(self):
 		for i in self.edit_menu:

@@ -2,7 +2,7 @@ from st30.Book import Book
 
 
 class Classbook(Book):
-	__subject = ''
+	subject = ''
 	edit_menu = {}
 
 	def __init__(self):
@@ -10,7 +10,7 @@ class Classbook(Book):
 		self.edit_menu["5"] = ["subject", self.set_subject]
 
 	def set_subject(self):
-		self.__subject = input('Enter the subject to be learned using the book\n')
+		self.subject = input('Enter the subject to be learned using the book\n')
 
 	def book_registration(self):
 		Book.book_registration(self)
@@ -18,4 +18,4 @@ class Classbook(Book):
 
 	def show_book(self):
 		Book.show_book(self)
-		print('Subject: ' + self.__subject)
+		print('Subject: ' + self.subject)
