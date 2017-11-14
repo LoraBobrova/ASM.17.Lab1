@@ -1,4 +1,4 @@
-from st24.CommunistParty import CommunistParty
+from .CommunistParty import CommunistParty
 
 communist_party = CommunistParty()
 
