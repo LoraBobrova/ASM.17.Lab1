@@ -46,7 +46,7 @@ class car_park:
     def safe(self):
         if (len(self.park)>0):
             inpf=input("Enter the name of the file to save\n")
-            with open("st21/"+inpf,"wb")as f:
+            with open("st20/"+inpf,"wb")as f:
                 pickle.dump(self.park,f)
             print("File successfully saved")
         else:
@@ -55,7 +55,7 @@ class car_park:
     def load(self):
         outf=input("Enter the name of the file to upload\n")
         if (is_file(outf)):
-            with open("st21/"+outf,"rb") as f:
+            with open("st20/"+outf,"rb") as f:
                 self.park=pickle.load(f)
             print("File uploaded successfully")
             self.show()
