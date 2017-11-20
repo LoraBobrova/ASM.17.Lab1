@@ -33,17 +33,17 @@ class Menu:
 
     def SafeDishMenu(self):
         if (len(self.listdish)>0):
-            nf=input("Enter the name of the file to save\n")
-            with open("st17/"+nf,"wb")as f:
+            #nf=input("Enter the name of the file to save\n")
+            with open("st17/menu.pkl","wb")as f:
                 pickle.dump(self.listdish,f)
             print("File saved")
         else:
             print("The menu is empty")
 
     def LoadDishMenu(self):
-        nf=input("Enter the name of the file to upload\n")
+        #nf=input("Enter the name of the file to upload\n")
         if (IsFile(nf)):
-            with open("st17/"+nf,"rb") as f:
+            with open("st17/menu.pkl","rb") as f:
                 self.listdish=pickle.load(f)
             print("File downloaded")
             self.ShowDishMenu()
