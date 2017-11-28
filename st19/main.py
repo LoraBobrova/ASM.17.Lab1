@@ -3,7 +3,7 @@ from .group import *
 group = University()
 
 menu = {"1": ("Добавить студента", group.add_person),
-        "2": ("Добавить нового студента", group.add_new_person),
+        "2": ("Добавить преподавателя", group.add_new_person),
         "3": ("Редактировать", group.edit),
         "4": ("Удалить", group.delete),
         "5": ("Вывести список на экран", group.display_spisok),

@@ -2,7 +2,7 @@ from .mayor import *
 import pickle
 
 class University:
-    Gubkin = "st20/file.pkl"
+    Gubkin = "st19/file.pkl"
     spisok = []
 
     def __init__(self):
@@ -12,17 +12,21 @@ class University:
         person = Student()
         person.read()
         self.spisok.append(person)
-        print ("Человек добавлен")
+        print ("Студент добавлен")
 
     def add_new_person(self):
         new_person = Mayor()
         new_person.read()
         self.spisok.append(new_person)
-        print ("Добавлен новый человек")
+        print ("Добавлен преподаватель")
 
     def display_spisok(self):
-        for b in self.spisok:
-            b.result()
+        if len(self.spisok)==0:
+            print ("Список пуст\n")
+        else:
+            for i in range(0,len(self.spisok)):
+                self.spisok[i].write()
+                print ("\n")
 
     def chtenie(self):
         ponimanie = open(University.Gubkin,"rb")
