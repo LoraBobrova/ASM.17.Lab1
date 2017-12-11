@@ -1,4 +1,4 @@
-def is_float(value):
+def is_float(value):  
     try:
         float(value)
         return True
@@ -14,13 +14,13 @@ def is_int(value):
 
 def is_file(value):
     try:
-        open("st21/"+value, 'rb')
+        open("st20/"+value, 'rb')
         return True
     except FileNotFoundError:
         return False
 
 def show_menu():
-    return input("""
+    return input("""    
 add_car - add car
 add_truck - add truck
 edit - edit car
