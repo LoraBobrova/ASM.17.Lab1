@@ -1,5 +1,5 @@
-from st17.VipDish import VipDish
 from st17.Dish import Dish
+from st17.VipDish import VipDish
 from st17.ListCommand import *
 import pickle
 
@@ -8,17 +8,17 @@ class Menu:
     def __init__(self):
         self.listdish=[]
 
-    def AddDishMenu(self):
+    def AddDishInMenu(self):
         d=Dish()
         d.AddDish()
         self.listdish.append(d)
 
-    def AddVipDishMenu(self):
+    def AddVipDishInMenu(self):
         vd=VipDish()
         vd.AddVipDish()
         self.listdish.append(vd)
 
-    def ShowDishMenu(self):
+    def ShowMenu(self):
         if (len(self.listdish)>0):
             for i in self.listdish:
                 print("")
@@ -27,40 +27,40 @@ class Menu:
         else:
             print("The menu is empty")
 
-    def ClearDishMenu(self):
-        self.listdish.clear()
-        print("Menu cleared.\n")
-
-    def SafeDishMenu(self):
+    def EditDishInMenu(self):
         if (len(self.listdish)>0):
-            #nf=input("Enter the name of the file to save\n")
-            with open("st17/menu.pkl","wb")as f:
+            while(True):
+                self.ShowMenu()
+                i=WhileTest(IsInt,"\nEnter the dish id for editing. To return enter -1.\n")
+                if (int(i)==-1):
+                    break
+                if ((int(i)>-1)and(int(i)<len(self.listdish))):
+                    self.listdish[int(i)].EditDish()
+                else:
+                    print("\nEnter a number in the range from -1 to {0}".format(len(self.listdish)-1))
+        else:
+            print("The menu is empty")
+
+    def SafeMenu(self):
+        if (len(self.listdish)>0):
+            nf=input("Enter the name of the file to save\n")
+            with open("st17/"+nf,"wb")as f:
                 pickle.dump(self.listdish,f)
             print("File saved")
         else:
             print("The menu is empty")
 
-    def LoadDishMenu(self):
-        #nf=input("Enter the name of the file to upload\n")
+    def LoadMenu(self):
+        nf=input("Enter the name of the file to upload\n")
         if (IsFile(nf)):
-            with open("st17/menu.pkl","rb") as f:
+            with open("st17/"+nf,"rb") as f:
                 self.listdish=pickle.load(f)
             print("File downloaded")
-            self.ShowDishMenu()
+            self.ShowMenu()
         else:
             print("This file does not exist")
-        
-    def EditDishMenu(self):
-        if (len(self.listdish)>0):
-            self.ShowDishMenu()
-            p=""
-            while(True):
-                i=WhileTest(IsInt,p,"\nEnter the dish id for editing. To return enter -1.\n")
-                if (int(i)==-1):
-                    break
-                if ((int(i)<len(self.listdish))and(int(i)>-1)):
-                    self.listdish[int(i)].EditDish()
-                    self.ShowDishMenu()
-        else:
-            print("The menu is empty")
+
+    def ClearMenu(self):
+        self.listdish.clear()
+        print("Menu cleared.\n")
             

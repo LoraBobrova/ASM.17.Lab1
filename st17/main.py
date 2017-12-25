@@ -1,9 +1,9 @@
-from st17.Menu import Menu
 from st17.ListCommand import *
+from st17.Menu import Menu
 
 def main():
     m=Menu()
-    l=[m.AddDishMenu,m.AddVipDishMenu,m.EditDishMenu,m.ClearDishMenu,m.ShowDishMenu,m.SafeDishMenu,m.LoadDishMenu]
+    l=[m.AddDishInMenu,m.AddVipDishInMenu,m.EditDishInMenu,m.ClearMenu,m.ShowMenu,m.SafeMenu,m.LoadMenu]
     while (True):
         i=int(ShowList())
         if ((i>len(l)) or (i<0)):

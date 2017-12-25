@@ -19,10 +19,10 @@ class Dish:
         self.name=input("Enter name\n")
     
     def AddPrice(self):
-        self.price=WhileTest(IsFloat,self.price,"Enter price\n")
+        self.price=WhileTest(IsFloat,"Enter price\n")
 
     def AddGrams(self):
-        self.grams=WhileTest(IsFloat,self.grams,"Enter grams\n")
+        self.grams=WhileTest(IsFloat,"Enter grams\n")
 
     def AddDescription(self):
         self.description=input("Enter description\n")
@@ -35,11 +35,13 @@ class Dish:
 3) description - {3}""".format(self.name,self.price,self.grams,self.description))
 
     def EditDish(self):
-        self.ShowDish()
-        p=""
         while(True):
-            i=WhileTest(IsInt,p,"\nEnter the parameter dish number for editing. To return enter -1.\n")
+            self.ShowDish()
+            i=WhileTest(IsInt,"\nEnter the parameter dish number for editing. To return enter -1.\n")
             if (int(i)==-1):
                 break
-            self.edit[int(i)]()
-            self.ShowDish()
+            if ((int(i)>-1)and(int(i)<len(self.edit))):
+                self.edit[int(i)]()
+            else:
+                print("\nEnter a number in the range from -1 to {0}".format(len(self.edit)-1))
+            

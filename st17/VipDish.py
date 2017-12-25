@@ -1,5 +1,5 @@
-from st17.Dish import Dish
 from st17.ListCommand import *
+from st17.Dish import Dish
 
 class VipDish(Dish):
     
@@ -7,8 +7,7 @@ class VipDish(Dish):
         Dish.__init__(self)
         self.bonus=0
         self.calories=0
-        self.edit.append(self.AddBonus)
-        self.edit.append(self.AddCalories)
+        self.edit.extend([self.AddBonus,self.AddCalories])
 
     def AddVipDish(self):
         Dish.AddDish(self)
@@ -16,10 +15,10 @@ class VipDish(Dish):
         self.AddCalories()
 
     def AddBonus(self):
-        self.bonus=WhileTest(IsInt,self.bonus,"Enter bonus\n")
+        self.bonus=WhileTest(IsInt,"Enter bonus\n")
 
     def AddCalories(self):
-        self.calories=WhileTest(IsFloat,self.calories,"Enter calories\n")
+        self.calories=WhileTest(IsFloat,"Enter calories\n")
 
     def ShowDish(self):
         Dish.ShowDish(self)
